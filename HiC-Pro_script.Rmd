@@ -225,29 +225,5 @@ Header should look like this:
 
 Of interest are: plotMapping\_*.pdf : Statistics of read alignments for read1 and read2 plotMappingPairing\_*.pdf : Breakdown of reported pairs, unmapped pairs and not reported ("filtered") pairs plotHiCFragment\_*.pdf : Statistics on types of valid and invalid pairs plotHiCFragmentSize\_*.pdf : Fragment size distribution of the valid pairs plotHiCContactRanges\_\*.pdf : Statistics on contact ranges for valid pairs (Trans, Cis short- or long-distance)
 
-<img src="/Users/awilderman/Dropbox/Cotney_Lab/Capture_Hi-C/HiC/2020-02-01_NoLimits_CNCC_H9/pic-NoLimits/pic/AWIL064/plotMapping_AWIL064.pdf" alt="plotMapping.pdf" width="900" />
-<p class="caption">
-plotMapping.pdf
-</p>
-
-<img src="/Users/awilderman/Dropbox/Cotney_Lab/Capture_Hi-C/HiC/2020-02-01_NoLimits_CNCC_H9/pic-NoLimits/pic/AWIL064/plotMappingPairing_AWIL064.pdf" alt="plotMappingPairing.pdf" width="900" />
-<p class="caption">
-plotMappingPairing.pdf
-</p>
-
-<img src="/Users/awilderman/Dropbox/Cotney_Lab/Capture_Hi-C/HiC/2020-02-01_NoLimits_CNCC_H9/pic-NoLimits/pic/AWIL064/plotHiCFragment_AWIL064.pdf" alt="plotHiCFragment.pdf" width="900" />
-<p class="caption">
-plotHiCFragment.pdf
-</p>
-
-<img src="/Users/awilderman/Dropbox/Cotney_Lab/Capture_Hi-C/HiC/2020-02-01_NoLimits_CNCC_H9/pic-NoLimits/pic/AWIL064/plotHiCFragmentSize_AWIL064.pdf" alt="plotHiCFragmentSize.pdf" width="900" />
-<p class="caption">
-plotHiCFragmentSize.pdf
-</p>
-
-<img src="/Users/awilderman/Dropbox/Cotney_Lab/Capture_Hi-C/HiC/2020-02-01_NoLimits_CNCC_H9/pic-NoLimits/pic/AWIL064/plotHiCContactRanges_AWIL064.pdf" alt="plotHiCContactRanges.pdf" width="900" />
-<p class="caption">
-plotHiCContactRanges.pdf
-</p>
 
 #### The other set of HiC-Pro outputs are the matrices, which can be analyzed and visualized using other packages
