@@ -1,37 +1,19 @@
 # make script for Juicer_convert.slurm
 
-# Juicer location
-# /isg/shared/apps/juicer/1.8.9/SLURM/scripts/juicer_tools.jar
-
-# Locations of genome fasta files
-# /home/FCAM/awilderman/GENOME/hg19/hg19_nh/hg19_nh.fa
-# /home/FCAM/awilderman/GENOME/Mmusculus/mm10/Sequence/GRCm38.primary_assembly.genome.fa
-
-# Locations of chrom.sizes files
-# /home/FCAM/jcotney/GENOME/hg19/dna/hg19_nh.chrom.sizes
-# /home/FCAM/jcotney/GENOME/mm10/dna/mm10.chrom.sizes
-
-# Locations of restriction site files
-# /home/FCAM/awilderman/ANALYSIS/HiC/Juicer/GENOMES/hg19_nh/hg19_nh_DpnII.txt
-# /home/FCAM/awilderman/ANALYSIS/HiC/Juicer/GENOMES/mm10/mm10_DpnII.txt
-
-# bowtie results from HiCPro
-# /home/FCAM/awilderman/ANALYSIS/HiC/Human/CS17_03-29-21/HiCPro/Results/bowtie_results/bwt2/AWIL107
-# /home/FCAM/awilderman/ANALYSIS/HiC/Mouse/HOXA_LCR_Deletion/HiCPro/Results/bowtie_results/bwt2/AWIL108
-# /home/FCAM/awilderman/ANALYSIS/HiC/Mouse/HOXA_LCR_Deletion/HiCPro/Results/bowtie_results/bwt2/AWIL109
 
 ## convert HiC data to Juicer
 ## Convert the bam file from bwt2 to 4DN DCIC format using pairx
+## Then convert to .hic for use with Juicer GUI
 
- 	export ANALYSISDIR=/home/FCAM/awilderman/ANALYSIS/HiC/Juicer/
-    export SAMPLE=AWIL108
+    export ANALYSISDIR=
+    export SAMPLE=
     export JOB_NAME=${SAMPLE}_Juicer_convert
-    export MAIL=awilderman@uchc.edu
-    export BAMDIR=/home/FCAM/awilderman/ANALYSIS/HiC/Mouse/HOXA_LCR_Deletion/HiCPro/Results/bowtie_results/bwt2/AWIL108
-    export GENOME=mm10 #hg19, mm10, etc.
-    export GENOME_SIZE=/home/FCAM/jcotney/GENOME/mm10/dna/mm10.chrom.sizes #<path to .chrom.sizes file>
-    export JUICERTOOLS=/isg/shared/apps/juicer/1.8.9/SLURM/scripts/juicer_tools.jar #<path to juicer_tools.jar>  
-	export REFILE=/home/FCAM/awilderman/ANALYSIS/HiC/Juicer/GENOMES/mm10/mm10_DpnII.txt
+    export MAIL=
+    export BAMDIR=
+    export GENOME= #hg19, mm10, etc.
+    export GENOME_SIZE= #<path to .chrom.sizes file>
+    export JUICERTOOLS= #<path to juicer_tools.jar>  
+    export REFILE= #<path to genome_enzyme.txt, downloaded or created with https://github.com/aidenlab/juicer/blob/master/misc/generate_site_positions.py>
 
 echo "#!/bin/bash
 #SBATCH -N 1
@@ -51,7 +33,7 @@ module load htslib/1.10.2
 module load juicer/1.8.9
 module load juicebox/1.9.8
 
-cd /home/FCAM/awilderman/ANALYSIS/HiC/Juicer
+cd ~/ANALYSIS/HiC/Juicer
 
 bam2pairs -l -c ${GENOME_SIZE} ${BAMDIR}/${SAMPLE}_${GENOME}.bwt2pairs.bam  ${SAMPLE}
 
