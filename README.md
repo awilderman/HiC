@@ -2,6 +2,7 @@
 Set of scripts for processing HiC data
 
 ### Create matrix with HiC-Pro
+HiC-Pro_script.Rmd
 
 
 ### Convert format of matrix
