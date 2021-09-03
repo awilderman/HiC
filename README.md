@@ -3,9 +3,11 @@ Set of scripts for processing HiC data
 
 ### Create matrix with HiC-Pro
 HiC-Pro_script.Rmd
-
+HiCPlotter_example.md
 
 ### Convert format of matrix
+convert_format.sh (writes a slurm script to use HiCExplorer to convert hic-pro files to .h5, .cool or .mcool)
+
 
 ### Analyze an individual matrix
 
