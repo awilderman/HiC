@@ -7,9 +7,10 @@ HiCPlotter_example.md
 
 ### Convert format of matrix
 convert_format.sh (writes a slurm script to use HiCExplorer to convert hic-pro files to .h5, .cool or .mcool)
-
+convert_to_Juicer_format.sh (writes a slurm script to convert hic-pro .bwt2pairs.bam to .hic)
 
 ### Analyze an individual matrix
+
 
 ### Compare two or more matrices
 
