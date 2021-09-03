@@ -6,7 +6,7 @@ HiC-Pro_script.Rmd
 
 HiCPlotter_example.md
 
-### Convert format of matrix (to analyze and create multi-layered plots of individual matrix or many matrices with HiCExplorer or Juicer)
+### Convert format of matrix (analyze and create multi-layered plots with other tools)
 convert_format.sh (writes a slurm script to use HiCExplorer to convert hic-pro files to .h5, .cool or .mcool)
 
 convert_to_Juicer_format.sh (writes a slurm script to convert hic-pro .bwt2pairs.bam to .hic for visualization in Juicer)
