@@ -1,7 +1,7 @@
 # HiC
 Set of scripts for processing HiC data
 
-### Create matrix with HiC-Pro
+### Create matrix with HiC-Pro (the original pipeline)
 HiC-Pro_script.Rmd
 
 HiCPlotter_example.md
@@ -9,7 +9,7 @@ HiCPlotter_example.md
 ### Convert format of matrix
 convert_format.sh (writes a slurm script to use HiCExplorer to convert hic-pro files to .h5, .cool or .mcool)
 
-convert_to_Juicer_format.sh (writes a slurm script to convert hic-pro .bwt2pairs.bam to .hic)
+convert_to_Juicer_format.sh (writes a slurm script to convert hic-pro .bwt2pairs.bam to .hic for visualization in Juicer)
 
 ### Analyze an individual matrix
 1) merge_and_diagostic.sh (writes a slurm script to merge bins e.g. 10Kb merged to 50Kb, 100Kb, 500Kb and produce diagnostic plots that you view to determine the correction thresholds)
