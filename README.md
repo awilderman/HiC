@@ -7,14 +7,14 @@ HiC-Pro_script.Rmd
 HiCPlotter_example.md
 
 ### Convert format of matrix (analyze and create multi-layered plots with other tools)
-convert_format.sh (writes a slurm script to use HiCExplorer to convert hic-pro files to .h5, .cool or .mcool)
+convert_format.sh (writes the slurm script "hicexplorer_convert.slurm" to use HiCExplorer to convert hic-pro files to .h5, .cool or .mcool)
 
-convert_to_Juicer_format.sh (writes a slurm script to convert hic-pro .bwt2pairs.bam to .hic for visualization in Juicer)
+convert_to_Juicer_format.sh (writes the slurm script " " to convert hic-pro .bwt2pairs.bam to .hic for visualization in Juicer)
 
 ### Analyze an individual matrix
-1) merge_and_diagostic.sh (writes a slurm script to merge bins e.g. 10Kb merged to 50Kb, 100Kb, 500Kb and produce diagnostic plots that you view to determine the correction thresholds)
+1) merge_and_diagostic.sh (writes the slurm script "hicexplorer_merge.slurm" to merge bins e.g. 10Kb merged to 50Kb, 100Kb, 500Kb and produce diagnostic plots that you view to determine the correction thresholds)
 
-2) correct_and_call.sh (writes and all-in-one slurm script to ICE correct the matrices at various resolutions, detect TADs, plot a 10Kb resolution hic matrix with TADs detected at various resolutions overlaid, detect loops, plot the loops on a diagonal matrix. Note: writes a .txt version of the slurm script to remind you to manually enter the threshold values!!)
+2) correct_and_call.sh (writes the all-in-one slurm script "hicexplorer_TADs_and_Loops.txt" to ICE correct the matrices at various resolutions, detect TADs, plot a 10Kb resolution hic matrix with TADs detected at various resolutions overlaid, detect loops, plot the loops on a diagonal matrix. Note: writes a .txt version of the slurm script to remind you to manually enter the threshold values!!)
 
 ### Compare two or more matrices
 
