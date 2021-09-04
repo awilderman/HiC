@@ -21,7 +21,8 @@ convert_to_Juicer_format.sh (writes a slurm script to convert hic-pro .bwt2pairs
 
 ### Extra and alternative methods
 make_interact.sh (convert .loops file to UCSC interact format)
-
+make_TADClassifier.sh (call TADs with an alternative method, uses .cool files only)
+merge_TAD_method.sh (uses hicMergeDomains to work with TADs called at multiple resolutions)
 
 
 
