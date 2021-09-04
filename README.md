@@ -12,12 +12,14 @@ convert_format.sh (writes the slurm script "hicexplorer_convert.slurm" to use Hi
 convert_to_Juicer_format.sh (writes a slurm script to convert hic-pro .bwt2pairs.bam to .hic for visualization in Juicer)
 
 ### Analyze an individual matrix
-1) merge_and_diagostic.sh (writes the slurm script "hicexplorer_merge.slurm" to merge bins e.g. 10Kb merged to 50Kb, 100Kb, 500Kb and produce diagnostic plots that you view to determine the correction thresholds)
+1) merge_and_diagostic.sh (writes the slurm script "hicexplorer_merge.slurm" to merge bins e.g. 10Kb merged to 50Kb, 100Kb, 500Kb and produce diagnostic plots that you view to determine the thresholds for the next step)
 
-2) correct_and_call.sh (writes the all-in-one slurm script "hicexplorer_TADs_and_Loops.txt" to ICE correct the matrices at various resolutions, detect TADs, plot a 10Kb resolution hic matrix with TADs detected at various resolutions overlaid, detect loops, plot the loops on a diagonal matrix. Note: writes a .txt version of the slurm script to remind you to manually enter the threshold values!!)
+2) correct_and_call.sh (writes the all-in-one slurm script "hicexplorer_TADs_and_Loops.txt" to ICE normalize the matrices at various resolutions, detect TADs, plot a 10Kb resolution hic matrix with TADs detected at various resolutions overlaid, detect loops, plot the loops on a diagonal matrix. Note: writes a .txt version of the slurm script to remind you to manually enter the threshold values!!)
 
 ### Compare two or more matrices
-1) 
+1) normalize.sh (writes "hicexplorer_normalize.slurm" to normalize matrices to eachother using the smallest matrix, also creates diagnostic plots that you need to view to determine thresholds for the correction step.)
+
+2) correct_and_compare.sh (writes "hicexplorer_correct_compare.txt" to ICE normalize the matrices and produce diagonal plots showing comparisons between pairs of matrices at higher resolution in sub-chromosomal region of choice and each individual chromosome at lower resolutions.)
 
 ### Extra and alternative methods
 make_interact.sh (will create "write_interact.sh" to convert .loops file to UCSC interact format)
