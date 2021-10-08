@@ -17,160 +17,160 @@ HiC-Pro
 
 ### create the config file
 
-    export ANALYSISDIR=#<location where you want new analysis directory created, not desired directory name>
-    export SAMPLE=
-    export JOB_NAME=${SAMPLE}_HiC-Pro
-    export MAIL=
-    export BOWTIE2_IDX_PATH=
-    export REFERENCE_GENOME=
-    export GENOME_SIZE=#<path to .chrom.sizes file>
-    export GENOME_FRAGMENT=#<path to _resfrag_*.bed>  
-    export LIGATION_SITE=# DpnII:GATCGATC, HindIII:AAGCTAGCTT
+export ANALYSISDIR=#<location where you want new analysis directory created, not desired directory name>
+export SAMPLE=
+export JOB_NAME=${SAMPLE}_HiC-Pro
+export MAIL=
+export BOWTIE2_IDX_PATH=
+export REFERENCE_GENOME=
+export GENOME_SIZE=#<path to .chrom.sizes file>
+export GENOME_FRAGMENT=#<path to _resfrag_*.bed>  
+export LIGATION_SITE=# DpnII:GATCGATC, HindIII:AAGCTAGCTT
 
 
     # double-check the names of your fastq(.gz) files, expects read 1 and read 2 to have _R1 and _R2 identifiers. Change filename or config file to match
-    # The bin sizes will be 50000 10000 20000 40000 100000 500000 1000000 : this is a good range to start
+    # The bin sizes will be 5000 10000 40000 : this is a good range to start
     # No max or min fragment or insert size specified, change if desired
 
-    echo "#########################################################################
+echo "#########################################################################
 
-    ## Paths and Settings  - Do not edit !
+## Paths and Settings  - Do not edit !
 
-    #########################################################################
+#########################################################################
 
-    TMP_DIR = tmp
+TMP_DIR = tmp
 
-    LOGS_DIR = logs
+LOGS_DIR = logs
 
-    BOWTIE2_OUTPUT_DIR = bowtie_results
+BOWTIE2_OUTPUT_DIR = bowtie_results
 
-    MAPC_OUTPUT = hic_results
+MAPC_OUTPUT = hic_results
 
-    RAW_DIR = rawdata
+RAW_DIR = rawdata
 
-    #######################################################################
+#######################################################################
 
-    ## SYSTEM - PBS - Start Editing Here !!
+## SYSTEM - PBS - Start Editing Here !!
 
-    #######################################################################
+#######################################################################
 
-    N_CPU = 8
+N_CPU = 8
 
-    LOGFILE = hicpro.log
+LOGFILE = hicpro.log
 
-    JOB_NAME = ${JOB_NAME}
+JOB_NAME = ${JOB_NAME}
 
-    JOB_MEM = 8G
+JOB_MEM = 8G
 
-    JOB_WALLTIME = 100:00:00
+JOB_WALLTIME = 100:00:00
 
-    JOB_QUEUE = general
+JOB_QUEUE = general
 
-    JOB_MAIL = ${MAIL}
+JOB_MAIL = ${MAIL}
 
-    #########################################################################
+#########################################################################
 
-    ## Data
+## Data
 
-    #########################################################################
+#########################################################################
 
-    PAIR1_EXT = _R1
+PAIR1_EXT = _R1
 
-    PAIR2_EXT = _R2
+PAIR2_EXT = _R2
 
-    #######################################################################
+#######################################################################
 
-    ## Alignment options
+## Alignment options
 
-    #######################################################################
+#######################################################################
 
-    FORMAT = phred33
+FORMAT = phred33
 
-    MIN_MAPQ = 0
+MIN_MAPQ = 0
 
-    BOWTIE2_IDX_PATH = ${BOWTIE2_IDX_PATH}
+BOWTIE2_IDX_PATH = ${BOWTIE2_IDX_PATH}
 
-    BOWTIE2_GLOBAL_OPTIONS = --very-sensitive -L 30 --score-min L,-0.6,-0.2 --end-to-end --reorder
+BOWTIE2_GLOBAL_OPTIONS = --very-sensitive -L 30 --score-min L,-0.6,-0.2 --end-to-end --reorder
 
-    BOWTIE2_LOCAL_OPTIONS =  --very-sensitive -L 20 --score-min L,-0.6,-0.2 --end-to-end --reorder
+BOWTIE2_LOCAL_OPTIONS =  --very-sensitive -L 20 --score-min L,-0.6,-0.2 --end-to-end --reorder
 
-    #######################################################################
+#######################################################################
 
-    ## Annotation files
+## Annotation files
 
-    #######################################################################
+#######################################################################
 
-    REFERENCE_GENOME = ${REFERENCE_GENOME}
+REFERENCE_GENOME = ${REFERENCE_GENOME}
 
-    GENOME_SIZE = ${GENOME_SIZE}
+GENOME_SIZE = ${GENOME_SIZE}
 
-    #######################################################################
+#######################################################################
 
-    ## Allele specific
+## Allele specific
 
-    #######################################################################
+#######################################################################
 
-    ALLELE_SPECIFIC_SNP = 
+ALLELE_SPECIFIC_SNP = 
 
-    #######################################################################
+#######################################################################
 
-    ## Digestion Hi-C
+## Digestion Hi-C
 
-    #######################################################################
+#######################################################################
 
-    GENOME_FRAGMENT = ${GENOME_FRAGMENT}
+GENOME_FRAGMENT = ${GENOME_FRAGMENT}
 
-    LIGATION_SITE = ${LIGATION_SITE}
+LIGATION_SITE = ${LIGATION_SITE}
 
-    MIN_FRAG_SIZE = 
+MIN_FRAG_SIZE = 
 
-    MAX_FRAG_SIZE =
+MAX_FRAG_SIZE =
 
-    MIN_INSERT_SIZE =
+MIN_INSERT_SIZE =
 
-    MAX_INSERT_SIZE =
+MAX_INSERT_SIZE =
 
-    #######################################################################
+#######################################################################
 
-    ## Hi-C processing
+## Hi-C processing
 
-    #######################################################################
+#######################################################################
 
-    MIN_CIS_DIST = 1000
+MIN_CIS_DIST = 1000
 
-    GET_ALL_INTERACTION_CLASSES = 1
+GET_ALL_INTERACTION_CLASSES = 1
 
-    GET_PROCESS_SAM = 0
+GET_PROCESS_SAM = 0
 
-    RM_SINGLETON = 1
+RM_SINGLETON = 1
 
-    RM_MULTI = 1
+RM_MULTI = 1
 
-    RM_DUP = 1
+RM_DUP = 1
 
-    #######################################################################
+#######################################################################
 
-    ## Contact Maps
+## Contact Maps
 
-    #######################################################################
+#######################################################################
 
-    BIN_SIZE = 50000 10000 20000 40000 100000 500000 1000000
+BIN_SIZE = 5000 10000 40000
 
-    MATRIX_FORMAT = upper
+MATRIX_FORMAT = upper
 
-    #######################################################################
+#######################################################################
 
-    ## ICE Normalization
+## ICE Normalization
 
-    #######################################################################
+#######################################################################
 
-    MAX_ITER = 100
+MAX_ITER = 100
 
-    FILTER_LOW_COUNT_PERC = 0.02
+FILTER_LOW_COUNT_PERC = 0.02
 
-    FILTER_HIGH_COUNT_PERC = 0
+FILTER_HIGH_COUNT_PERC = 0
 
-    EPS = 0.1" > ${SAMPLE}_config.txt
+EPS = 0.1" > ${SAMPLE}_config.txt
 
 ### RUN HIC-PRO INITIAL COMMAND
 
