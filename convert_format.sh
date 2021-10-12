@@ -1,4 +1,4 @@
-# Convert to h5 format for HiCExplorer- (also can make cool and mcool files)
+# Convert to h5 format for HiCExplorer- how to build a generic write script (also can make cool and mcool files)
 ## edit environmental variables
 export MAIL=awilderman@uchc.edu
 export MCSOURCE="/home/FCAM/awilderman/ANALYSIS/HiC/Human/CS17_03-29-21/HiCExplorer"
@@ -7,6 +7,7 @@ export HICPRODIR="/home/FCAM/awilderman/ANALYSIS/HiC/Lyu_H9"
 export SAMPLE=fastq
 export LABEL=H9
 export RESOLUTION=10000
+export OUTFORMAT=h5
 
 echo "#!/bin/bash
 #SBATCH --job-name=HiCExplorer_convert
@@ -27,6 +28,6 @@ conda activate "$MCSOURCE"/hicexplorer
 
 cd "$OUTDIR"
 
-hicConvertFormat --matrices "$HICPRODIR"/"$LABEL"/hic_results/matrix/"$SAMPLE"/raw/"$RESOLUTION"/"$SAMPLE"_"$RESOLUTION".matrix --outFileName "$LABEL"_"$RESOLUTION" --inputFormat hicpro --outputFormat h5 --bedFileHicpro "$HICPRODIR"/"$LABEL"/hic_results/matrix/"$SAMPLE"/raw/"$RESOLUTION"/"$SAMPLE"_"$RESOLUTION"_abs.bed
+hicConvertFormat --matrices "$HICPRODIR"/"$LABEL"/hic_results/matrix/"$SAMPLE"/raw/"$RESOLUTION"/"$SAMPLE"_"$RESOLUTION".matrix --outFileName "$LABEL"_"$RESOLUTION"."$OUTFORMAT" --inputFormat hicpro --outputFormat "$OUTFORMAT" --bedFileHicpro "$HICPRODIR"/"$LABEL"/hic_results/matrix/"$SAMPLE"/raw/"$RESOLUTION"/"$SAMPLE"_"$RESOLUTION"_abs.bed
 
 conda deactivate" > hicexplorer_convert.slurm
