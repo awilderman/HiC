@@ -36,3 +36,4 @@ hicCorrectMatrix diagnostic_plot -m "$LABEL"_"$RESOLUTION"merged_to_"$RESTHREE"_
 hicCorrectMatrix diagnostic_plot -m "$LABEL"_"$RESOLUTION"merged_to_"$RESFOUR"_matrix.h5 -o plot_"$LABEL"_"$RESOLUTION"merged_to_"$RESFOUR"_matrix.h5.png
 
 conda deactivate" > hicexplorer_merge.slurm
+
