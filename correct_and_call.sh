@@ -57,7 +57,7 @@ hicPlotMatrix -m \
 "$LABEL"_"$RESOLUTION"merged_to_"$RESTWO"_corrected_matrix.h5 \
 --clearMaskedBins \
 --region "$REGION" \
--o WT_CNCC_1Kmerged_to_6K_corrected_plot.png
+-o "$LABEL"_"$RESOLUTION"merged_to_"$RESTWO"_corrected_plot.png
 
 # Plot each whole chromosome as a separate figure, two lower resolutions (e.g. 100Kb, 500Kb)
 
@@ -84,7 +84,7 @@ hicFindTADs -m "$LABEL"_"$RESOLUTION"merged_to_"$RESONE"_corrected_matrix.h5 \
 -p 16
 
 hicFindTADs -m "$LABEL"_"$RESOLUTION"merged_to_"$RESTWO"_corrected_matrix.h5 \
---outPrefix "$LABEL"_"$RESOLUTION"merged_to_"$RESTWOE"_corrected_1_05_TADs \
+--outPrefix "$LABEL"_"$RESOLUTION"merged_to_"$RESTWO"_corrected_1_05_TADs \
 --correctForMultipleTesting fdr \
 --thresholdComparisons 0.1 \
 --delta 0.05 \
@@ -199,4 +199,8 @@ hicPlotTADs --tracks hic_track.ini -o "$LABEL"_hic_track.png --region "$REGION"
 hicDetectLoops -m "$LABEL"_"$RESOLUTION"_corrected_matrix.h5 -o "$LABEL"_"$RESOLUTION"_loops.bedgraph --maxLoopDistance 4000000 --windowSize 10 --peakWidth 6 --pValuePreselection 0.05 --pValue 0.05
 hicPlotMatrix -m "$LABEL"_"$RESOLUTION"_corrected_matrix.h5 -o "$LABEL"_"$RESOLUTION"_loops_plot.pdf --log1p --region "$REGION" --loops "$LABEL"_"$RESOLUTION"_loops.bedgraph
 
+hicDetectLoops -m "$LABEL"_"$RESOLUTION"_corrected_matrix.h5 -o "$LABEL"_"$RESOLUTION"_loops_p1.bedgraph --maxLoopDistance 4000000 --windowSize 10 --peakWidth 6 --pValuePreselection 0.05 --pValue 0.1
+hicPlotMatrix -m "$LABEL"_"$RESOLUTION"_corrected_matrix.h5 -o "$LABEL"_"$RESOLUTION"_loops_p1_plot.pdf --log1p --region "$REGION" --loops "$LABEL"_"$RESOLUTION"_loops_p1.bedgraph
+
 conda deactivate" > hicexplorer_TADs_and_Loops.txt
+
