@@ -101,6 +101,6 @@ title = Genes
 fontsize = 12
 file_type = bed\" > "$LABEL"_with_ChIP.ini
 
-hicPlotTADs --tracks "$LABEL_with_ChIP.ini -o "$LABEL"_hic_with_ChIP_track.png --region "$REGION"
+hicPlotTADs --tracks "$LABEL"_with_ChIP.ini -o "$LABEL"_hic_with_ChIP_track.png --region "$REGION"
 
 conda deactivate" > hicexplorer_with_ChIP.slurm
