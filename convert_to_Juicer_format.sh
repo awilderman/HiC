@@ -5,15 +5,15 @@
 ## Convert the bam file from bwt2 to 4DN DCIC format using pairx
 ## Then convert to .hic for use with Juicer GUI
 
-    export ANALYSISDIR=
-    export SAMPLE=
-    export JOB_NAME=${SAMPLE}_Juicer_convert
-    export MAIL=
-    export BAMDIR=
-    export GENOME= #hg19, mm10, etc.
-    export GENOME_SIZE= #<path to .chrom.sizes file>
-    export JUICERTOOLS= #<path to juicer_tools.jar>  
-    export REFILE= #<path to genome_enzyme.txt, downloaded or created with https://github.com/aidenlab/juicer/blob/master/misc/generate_site_positions.py>
+export ANALYSISDIR=
+export SAMPLE=
+export JOB_NAME=${SAMPLE}_Juicer_convert
+export MAIL=
+export BAMDIR=
+export GENOME= #hg19, mm10, etc.
+export GENOME_SIZE= #<path to .chrom.sizes file>
+export JUICERTOOLS= #<path to juicer_tools.jar>  
+export REFILE= #<path to genome_enzyme.txt, downloaded or created with https://github.com/aidenlab/juicer/blob/master/misc/generate_site_positions.py>
 
 echo "#!/bin/bash
 #SBATCH -N 1
@@ -41,12 +41,9 @@ bam2pairs -l -c ${GENOME_SIZE} ${BAMDIR}/${SAMPLE}_${GENOME}.bwt2pairs.bam  ${SA
 
 java -Xmx48g -jar ${JUICERTOOLS} pre ${SAMPLE}.bsorted.pairs.gz ${SAMPLE}.hic ${GENOME_SIZE} -f ${REFILE}" > ${JOB_NAME}.slurm
 
-# Run on Juicer GUI
-#	Download SIP
-# 	It opens, good!
-# 	Transfer hic file
-# 	Download juicer_tools
-# Run with defaults and res=5000*5
+# hic trackline to load to browser
+# track type=hic name="HiC" bigDataUrl=http://
+
 
 
 
