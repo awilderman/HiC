@@ -2,7 +2,7 @@
 export MAIL=awilderman@uchc.edu
 export MCSOURCE="/home/FCAM/awilderman/ANALYSIS/HiC/Human/CS17_03-29-21/HiCExplorer"
 export OUTDIR=/home/FCAM/awilderman/ANALYSIS/HiC/CNCC/HiCExplorer
-export LABEL=H9
+export LABEL=WT_CNCC
 export RESOLUTION=10000
 export RESONE=20K
 export RESTWO=50K
@@ -121,7 +121,7 @@ file_type = hic_matrix
 show_masked_bins = false
 
 [tads]
-file = "$LABEL"_"$RESOLUTION"merged_to_"$RESFOUR"_corrected_1_05_TADs_Domains.bed
+file = "$LABEL"_"$RESOLUTION"merged_to_"$RESFOUR"_corrected_1_05_TADs_domains.bed
 file_type = domains 
 title = "$RESFOUR" TADs
 display=triangles
@@ -147,7 +147,7 @@ file_type = hic_matrix
 show_masked_bins = false
 
 [tads]
-file = "$LABEL"_"$RESOLUTION"merged_to_"$RESTHREE"_corrected_1_05_TADs_Domains.bed
+file = "$LABEL"_"$RESOLUTION"merged_to_"$RESTHREE"_corrected_1_05_TADs_domains.bed
 file_type = domains 
 title = "$RESTHREE" TADs
 display=triangles
@@ -173,7 +173,7 @@ file_type = hic_matrix
 show_masked_bins = false
 
 [tads]
-file = "$LABEL"_"$RESOLUTION"merged_to_"$RESTWO"_corrected_1_05_TADs_Domains.bed
+file = "$LABEL"_"$RESOLUTION"merged_to_"$RESTWO"_corrected_1_05_TADs_domains.bed
 file_type = domains 
 title = "$RESTWO" TADs
 display=triangles
@@ -192,9 +192,9 @@ file = "$GENEFILE"
 height = 10
 title = Genes
 fontsize = 12
-file_type = bed\" > hic_track.ini
+file_type = bed\" > hic_"$LABEL"_track.ini
 
-hicPlotTADs --tracks hic_track.ini -o "$LABEL"_hic_track.png --region "$REGION"
+hicPlotTADs --tracks hic_"$LABEL"_track.ini -o "$LABEL"_hic_track.png --region "$REGION"
 
 hicDetectLoops -m "$LABEL"_"$RESOLUTION"_corrected_matrix.h5 -o "$LABEL"_"$RESOLUTION"_loops.bedgraph --maxLoopDistance 4000000 --windowSize 10 --peakWidth 6 --pValuePreselection 0.05 --pValue 0.05
 hicPlotMatrix -m "$LABEL"_"$RESOLUTION"_corrected_matrix.h5 -o "$LABEL"_"$RESOLUTION"_loops_plot.pdf --log1p --region "$REGION" --loops "$LABEL"_"$RESOLUTION"_loops.bedgraph
@@ -202,5 +202,4 @@ hicPlotMatrix -m "$LABEL"_"$RESOLUTION"_corrected_matrix.h5 -o "$LABEL"_"$RESOLU
 hicDetectLoops -m "$LABEL"_"$RESOLUTION"_corrected_matrix.h5 -o "$LABEL"_"$RESOLUTION"_loops_p1.bedgraph --maxLoopDistance 4000000 --windowSize 10 --peakWidth 6 --pValuePreselection 0.05 --pValue 0.1
 hicPlotMatrix -m "$LABEL"_"$RESOLUTION"_corrected_matrix.h5 -o "$LABEL"_"$RESOLUTION"_loops_p1_plot.pdf --log1p --region "$REGION" --loops "$LABEL"_"$RESOLUTION"_loops_p1.bedgraph
 
-conda deactivate" > hicexplorer_TADs_and_Loops.txt
-
+conda deactivate" > hicexplorer_${LABEL}_TADs_and_Loops.txt
