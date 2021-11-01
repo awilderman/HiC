@@ -33,17 +33,17 @@ hicCorrectMatrix correct --correctionMethod ICE -m "$LABELTHREE"_normalized.h5 -
 
 hicCompareMatrices -m \
 "$LABELONE"_normalized_corrected_matrix.h5 \
-"$LABELTWO"_normalziedcorrected_matrix.h5 \
+"$LABELTWO"_normalized_corrected_matrix.h5 \
 --operation log2ratio -o "$LABELONE"_v_"$LABELTWO"_compare.h5
 
 hicCompareMatrices -m \
 "$LABELONE"_normalized_corrected_matrix.h5 \
-"$LABELTHREE"_normalziedcorrected_matrix.h5 \
+"$LABELTHREE"_normalized_corrected_matrix.h5 \
 --operation log2ratio -o "$LABELONE"_v_"$LABELTHREE"_compare.h5
 
 hicCompareMatrices -m \
 "$LABELTWO"_normalized_corrected_matrix.h5 \
-"$LABELTHREE"_normalziedcorrected_matrix.h5 \
+"$LABELTHREE"_normalized_corrected_matrix.h5 \
 --operation log2ratio -o "$LABELTWO"_v_"$LABELTHREE"_compare.h5
 
 
